@@ -1,12 +1,9 @@
 package org.example.fit.bookstore.Service;
 import org.example.fit.bookstore.Model.Book;
 import org.example.fit.bookstore.Repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BookService {
@@ -40,8 +37,8 @@ public class BookService {
                 }) .orElseThrow(() ->new RuntimeException("Book not found"));
     }
 
-    public void deleteBook(Book id){
-        bookRepository.delete(id);
+    public void deleteBook(Book book, Integer id){
+        bookRepository.delete(book);
     }
 
 }

@@ -33,5 +33,9 @@ public class BookController {
         return bookService.updateBook(book, id);
     }
 
+    @PostMapping("/{id}")
+    public void deleteBook(@RequestBody Book book, @PathVariable Integer id){
+         bookService.deleteBook(book, id);
+    }
 
 }
