@@ -1,8 +1,6 @@
 package org.example.fit.bookstore.Controller;
-
 import org.example.fit.bookstore.Model.Book;
 import org.example.fit.bookstore.Service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +10,10 @@ import java.util.List;
 public class BookController {
 
     private BookService bookService;
+
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @GetMapping
     public List<Book> getAllBooks(){
