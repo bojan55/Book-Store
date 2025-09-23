@@ -10,6 +10,10 @@ public class BookService {
 
     private BookRepository bookRepository;
 
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
     public List<Book> getAllBooks(){
         List<Book> books = new ArrayList<>();
         for (Book book : bookRepository.findAll()) {
@@ -37,8 +41,8 @@ public class BookService {
                 }) .orElseThrow(() ->new RuntimeException("Book not found"));
     }
 
-    public void deleteBook(Book book, Integer id){
-        bookRepository.delete(book);
+    public void deleteBook(Integer id){
+        bookRepository.delete(id);
     }
 
 }
